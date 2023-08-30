@@ -23,9 +23,9 @@ while (opcion != 6):
     producto={}
     opcion=int(input("Digita la opción deseada: "))
     if opcion == 1:
-        print("\n****Ingresa nuevo producto****")
-        producto["nombre"] = input("Ingresa nombre de producto: ")
+        print("\n**** Ingresa nuevo producto ****")
         producto["codigo"] = int(input("Ingresa codigo del producto: "))
+        producto["nombre"] = input("Ingresa nombre de producto: ")
         producto["descripcion"] = input("Ingresa descripcion del producto: ")
         producto["foto"] = input("Ingresa la url de la foto del producto: ")
         producto["precio"] = float(input("Ingresa el precio del producto: "))
@@ -33,7 +33,7 @@ while (opcion != 6):
         producto["fechaEntradaBodega"] = input("Ingresa la fecha de entrada del producto: ")
         productos.append(producto)
     elif opcion==2:
-        print("\n****Mostrando inventario****")
+        print("\n**** Mostrando inventario ****")
         for productoSeleccinado in productos:
             print(f"Codigo = {productoSeleccinado['codigo']}")
             print(f"Nombre = {productoSeleccinado['nombre']}")
@@ -42,8 +42,22 @@ while (opcion != 6):
             print(f"Precio = $ {productoSeleccinado['precio']}")
             print(f"Cantidad de bodega = {productoSeleccinado['cantidadEnBodega']}")
             print(f"Fecha de entrada del producto = {productoSeleccinado['fechaEntradaBodega']}\n")         
-    elif opcion==3:   
-        pass
+    elif opcion==3: 
+        print("\n**** Buscar producto en bodega ****")
+        buscar = int(input("Ingresa el código del producto que deseas buscar: "))
+        for productoBuscado in productos:
+            if productoBuscado['codigo'] == buscar:
+                print("\n* Producto Encontrado *")
+                print(f"Codigo = {productoBuscado['codigo']}")
+                print(f"Nombre = {productoBuscado['nombre']}")
+                print(f"Descripcion =  {productoBuscado['descripcion']}")
+                print(f"Url de la foto = {productoBuscado['foto']}")
+                print(f"Precio = $ {productoBuscado['precio']}")
+                print(f"Cantidad de bodega = {productoBuscado['cantidadEnBodega']}")
+                print(f"Fecha de entrada del producto = {productoBuscado['fechaEntradaBodega']}\n")
+                break
+            else:
+                print("Producto no encontrado en la bodega.")
     elif opcion==4:
         pass
     elif opcion==5:
